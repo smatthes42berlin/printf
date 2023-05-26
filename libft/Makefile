@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/05/25 10:07:42 by smatthes         ###   ########.fr        #
+#    Updated: 2023/05/26 08:31:56 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@
 # $@ -> filename of the target of the rule
 # $< ->  name of the first prerequisite
 
-CC = cc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 
