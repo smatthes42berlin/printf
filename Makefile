@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/05/26 10:52:40 by smatthes         ###   ########.fr        #
+#    Updated: 2023/05/27 10:31:13 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,15 @@ SRC = test.c
 
 SRCTEST = $(addprefix test_, $(SRC)) 
 
+COMPILE = $(PATHUNITY) test/test/$(SRCTEST) -L. $(NAME) -I. -o testsample
+
 test123: all
-	cc $(PATHUNITY) -L. $(NAME) test/test/$(SRCTEST)
+	clear
+	echo "\n\n"
+	echo $(COMPILE)
+	echo "\n\n"
+	cc $(COMPILE) 
+	./testsample
 	
 # cc -Wall -Wextra -Werror $test_file_name "test_util.c" -lbsd -o test -L. "$rel_path_to_project/libft.a"
 

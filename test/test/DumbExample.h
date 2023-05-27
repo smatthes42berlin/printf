@@ -1,28 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_test.c                                        :+:      :+:    :+:   */
+/*   DumbExample.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 09:03:12 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/27 10:32:14 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/27 10:08:04 by smatthes          #+#    #+#             */
+/*   Updated: 2023/05/27 10:08:07 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include "test/unity/src/unity.h"
+#include <stdint.h>
 
-void setUp(void){};
-void tearDown(void){};
-
-void	test_should_return_five(void)
-{
-	TEST_ASSERT_EQUAL_INT(5, ft_test());
-}
-
-int main(void){
-	UNITY_BEGIN();
-	RUN_TEST(test_should_return_five);
-	return UNITY_END();
-}
+int8_t	AverageThreeBytes(int8_t a, int8_t b, int8_t c);

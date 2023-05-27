@@ -6,12 +6,14 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:03:09 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/26 09:04:35 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/05/27 10:32:41 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include <stdio.h>
 
-void ft_test(){
-    printf("Hi there!");
+int	ft_test(void)
+{
+	// printf("Hi there!");
+	return (5);
 }
