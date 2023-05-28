@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/05/27 10:31:13 by smatthes         ###   ########.fr        #
+#    Updated: 2023/05/28 17:44:22 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,15 +36,43 @@ SRC = test.c
 
 SRCTEST = $(addprefix test_, $(SRC)) 
 
-COMPILE = $(PATHUNITY) test/test/$(SRCTEST) -L. $(NAME) -I. -o testsample
+COMPILE = $(PATHUNITY) test/test/$(SRCTEST) test.c -L. $(NAME) -I. -o testsample
 
-test123: all
+PATHTOGETOUTPUT = ./test/test/get_output/
+PATHTOGETOTESTUTILS = ./test/test/utils/
+
+SRCTEST = 	test_all.c \
+			test_controller.c \
+			test_main.c \
+			test_comb.c \
+			test_single_c.c \
+			test_single_d.c \
+			test_single_gen.c \
+			test_single_i.c \
+			test_single_p.c \
+			test_single_s.c \
+			test_single_u.c \
+			test_single_x.c \
+			test_single_X.c \
+
+SRCTESTUTILS = file_handling.c
+
+FULLPATH_SRCTEST = $(patsubst %,$(PATHTOGETOUTPUT)%,$(SRCTEST))
+FULLPATH_SRCTESTUTILS = $(patsubst %,$(PATHTOGETOTESTUTILS)%,$(SRCTESTUTILS))
+
+
+run_tests: all
 	clear
 	echo "\n\n"
-	echo $(COMPILE)
-	echo "\n\n"
-	cc $(COMPILE) 
-	./testsample
+# echo $(COMPILE)
+# echo "\n\n"
+# cc $(COMPILE) 
+# ./testsample
+	cc $(FULLPATH_SRCTEST) $(FULLPATH_SRCTESTUTILS) -L. $(NAME) -I.
+	$(PATHTOGETOUTPUT)a.out
+	# cat $(PATHTOGETOUTPUT)test_res.txt
+	echo number of lines:
+	cat $(PATHTOGETOUTPUT)test_res.txt | wc -l
 	
 # cc -Wall -Wextra -Werror $test_file_name "test_util.c" -lbsd -o test -L. "$rel_path_to_project/libft.a"
 

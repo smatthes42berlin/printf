@@ -1,15 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DumbExample.h                                      :+:      :+:    :+:   */
+/*   test_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/27 10:08:04 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/27 10:08:07 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/28 17:10:58 by smatthes          #+#    #+#             */
+/*   Updated: 2023/05/28 17:11:54 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
+#include "test/test/test_libftprintf.h"
 
-int8_t	AverageThreeBytes(int8_t a, int8_t b, int8_t c);
+int	main(void)
+{
+	test_printf();
+	return (0);
+}

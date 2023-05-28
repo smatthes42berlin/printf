@@ -1,13 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   test_single_c.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 10:54:45 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/28 10:28:50 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/28 16:48:30 by smatthes          #+#    #+#             */
+/*   Updated: 2023/05/28 18:22:34 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_test(void);
+#include "test/test/test_libftprintf.h"
+
+
+void	test_single_c(int fd)
+{
+	int i = 32;
+	while (i <= 127)
+	{
+		run_test(fd, "%c", i);
+		i++;
+	}
+	return ;
+}
