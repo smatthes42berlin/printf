@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "dumbexample.h": "c"
-    }
+    },
+    "cmake.configureOnOpen": false
 }

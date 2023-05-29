@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/05/28 17:44:22 by smatthes         ###   ########.fr        #
+#    Updated: 2023/05/29 09:42:56 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,7 @@ CFLAGS = -Wall -Wextra -Werror
 HEADERLOCS = -I. -I.$(PATHUNITY)
 NAME = libftprintf.a
 PATHLIBFT = libft/libft.a
-PATHUNITY = test/unity/src/unity.c
-PATHTEST = test/test/
+ PATHTEST = test/test/
 PATHRESULTS = test/results/
 PATHBUILD = /
 BUILD_PATHS = $(PATHBUILD) $(PATHBUILD) $(PATHRESULTS) 
@@ -38,28 +37,31 @@ SRCTEST = $(addprefix test_, $(SRC))
 
 COMPILE = $(PATHUNITY) test/test/$(SRCTEST) test.c -L. $(NAME) -I. -o testsample
 
-PATHTOGETOUTPUT = ./test/test/get_output/
+PATHTOGETTESTRES = ./test/test/get_output/
+PATHTOREADTESTRES = ./test/test/read_output/
 PATHTOGETOTESTUTILS = ./test/test/utils/
 
-SRCTEST = 	test_all.c \
-			test_controller.c \
-			test_main.c \
-			test_comb.c \
-			test_single_c.c \
-			test_single_d.c \
-			test_single_gen.c \
-			test_single_i.c \
-			test_single_p.c \
-			test_single_s.c \
-			test_single_u.c \
-			test_single_x.c \
-			test_single_X.c \
+SRCGETTESTRES = 	test_all.c \
+					test_controller.c \
+					test_main.c \
+					test_comb.c \
+					test_single_c.c \
+					test_single_d.c \
+					test_single_gen.c \
+					test_single_i.c \
+					test_single_p.c \
+					test_single_s.c \
+					test_single_u.c \
+					test_single_x.c \
+					test_single_X.c \
+			
+SRCREADTESTRES = 	test_read.c \
 
 SRCTESTUTILS = file_handling.c
 
-FULLPATH_SRCTEST = $(patsubst %,$(PATHTOGETOUTPUT)%,$(SRCTEST))
+FULLPATH_SRCGETTESTRES = $(patsubst %,$(PATHTOGETTESTRES)%,$(SRCGETTESTRES))
+FULLPATH_SRCREADTESTRES = $(patsubst %,$(PATHTOREADTESTRES)%,$(SRCREADTESTRES))
 FULLPATH_SRCTESTUTILS = $(patsubst %,$(PATHTOGETOTESTUTILS)%,$(SRCTESTUTILS))
-
 
 run_tests: all
 	clear
@@ -68,11 +70,13 @@ run_tests: all
 # echo "\n\n"
 # cc $(COMPILE) 
 # ./testsample
-	cc $(FULLPATH_SRCTEST) $(FULLPATH_SRCTESTUTILS) -L. $(NAME) -I.
-	$(PATHTOGETOUTPUT)a.out
-	# cat $(PATHTOGETOUTPUT)test_res.txt
+	cc $(FULLPATH_SRCGETTESTRES) $(FULLPATH_SRCTESTUTILS) -L. $(NAME) -I. -o $(PATHTOGETTESTRES)a.out
+	$(PATHTOGETTESTRES)a.out
+	# cat $(PATHTOGETTESTRES)test_res.txt
 	echo number of lines:
-	cat $(PATHTOGETOUTPUT)test_res.txt | wc -l
+	cat $(PATHTOGETTESTRES)test_res.txt | wc -l
+	cc $(FULLPATH_SRCREADTESTRES) $(FULLPATH_SRCTESTUTILS) -L. $(NAME) -I. -o $(PATHTOGETTESTRES)a.out
+	$(PATHTOGETTESTRES)a.out
 	
 # cc -Wall -Wextra -Werror $test_file_name "test_util.c" -lbsd -o test -L. "$rel_path_to_project/libft.a"
 

@@ -1,0 +1,7 @@
+../test/test_ft_split_str.c:78:invalid_input:PASS
+../test/test_ft_split_str.c:35:empty_string:FAIL: Expected pointer to be NULL
+../test/test_ft_split_str.c:53:valid_input:FAIL: Expected pointer to be NULL
+
+-----------------------
+3 Tests 2 Failures 0 Ignored 
+FAIL

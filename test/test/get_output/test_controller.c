@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 10:48:27 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/28 17:47:46 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/05/29 08:46:57 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	test_printf(void)
 	int		close;
 	char	*file_path;
 
-	file_path = "./test_res.txt";
+	file_path = "./test/test/get_output/test_res.txt";
 	fd = open_file_fd(file_path, O_WRONLY | O_CREAT | O_TRUNC);
 	close = close_file_fd(fd);
 	chmod(file_path, S_IRWXU | S_IRWXO | S_IRWXG);
