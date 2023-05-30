@@ -6,12 +6,12 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:02:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/29 16:45:12 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/05/30 18:05:12 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/libft.h"
-#include "test_libft.h"
+#include "../../src/libft.h"
+#include "../test_libft.h"
 
 void	setUp(void){};
 void	tearDown(void){};

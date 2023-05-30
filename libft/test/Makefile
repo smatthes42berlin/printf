@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/29 12:02:07 by smatthes          #+#    #+#              #
-#    Updated: 2023/05/29 16:00:53 by smatthes         ###   ########.fr        #
+#    Updated: 2023/05/30 18:39:45 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@
 CLEANUP = rm -f
 MKDIR = mkdir -p
 TARGET_EXTENSION=out
-
 
 .PHONY: clean
 .PHONY: test
@@ -30,8 +29,10 @@ PATHR = $(PATHROOT)build/results/
 
 BUILD_PATHS = $(PATHB) $(PATHD) $(PATHO) $(PATHR)
 
-SRCT = $(wildcard $(PATHT)*.c)
-# SRCT = $(PATHT)ft_split_str.c
+SRCT = $(shell find $(PATHT) -name "*.c")
+# SRCT = $(wildcard $(PATHT)*/*.c)
+# SRCT = $(wildcard *.c $(foreach fd, $(SUBDIR), $(fd)/*.c))
+# SRCT = $(PATHT)split/ft_split_str.c
 
 COMPILE=cc -c
 LINK=cc
@@ -50,12 +51,21 @@ CFLAGS= -Wall -Wextra -Werror -I. -I$(PATHU) -I$(PATHS) -DTEST
 # $(patsubst pattern,replacement,text)
 # % matches any number of characters, match-string is transported to results
 # creates one file TestSomething.txt for each file TestSomething.c in SRCT
-RESULTS = $(patsubst $(PATHT)test_%.c,$(PATHR)test_%.txt,$(SRCT) )
+
+$(info $$var is 4 [${PATHT}])
+$(info $$var is 5 [${PATHR}])
+$(info $$var is 6 [${SRCT}])
+
+RESULTS = $(patsubst $(PATHTEST)%.c,$(PATHRES)%.txt,$(SRCT) )
+# RESULTS = $(patsubst $(PATHT)test_%.c,$(PATHR)test_%.txt,$(SRCT) )
+
+$(info $$var is 1 [${SRCT}])
+$(info $$var is 2 [${RESULTS}])
+
 
 PASSED = `grep -s PASS $(PATHR)*.txt`
 FAIL = `grep -s FAIL $(PATHR)*.txt`
 IGNORE = `grep -s IGNORE $(PATHR)*.txt`
-
 
 # grab and display results from results files
 test: $(BUILD_PATHS) $(RESULTS)
@@ -88,6 +98,8 @@ $(PATHO)%.o:: $(PATHT)%.c
 # sourcefiles
 $(PATHO)%.o:: $(PATHS)%.c
 	$(COMPILE) $(CFLAGS) $< -o $@
+
+# $(info $$var is [${PATHU}])
 
 # unityfiles
 $(PATHO)%.o:: $(PATHU)%.c $(PATHU)%.h

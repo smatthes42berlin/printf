@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:05:46 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/29 16:29:54 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:56:20 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/libft.h"
+#include "../../src/libft.h"
 
 
 char	**ft_split_str(char const *s, char const *split_at)
