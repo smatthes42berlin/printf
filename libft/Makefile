@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/05/30 19:22:01 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/01 13:13:19 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,14 @@
 CFLAGS = -Wall -Wextra -Werror -I.
 NAME = libft.a
 NAMETEST = test.a
+TARGET_EXTENSION=out
 
 PATHSRC = src/ src/split/
 PATHBUILD = build/
-PATHOBJ = build/objs/
+PATHOBJ = build/obj/
+PATHTESTEXE = build/exe/
 PATHRES = build/results/
-PATHUNITY = unity/src/unity.c
+PATHUNITY = unity/src/
 PATHTEST = test/ test/split/
 
 SRCFNAMERELPATH = 	ft_atoi.c \
@@ -74,7 +76,7 @@ SRCFNAMERELPATH = 	ft_atoi.c \
 					ft_lstlast.c \
 					ft_lstnew.c \
 
-VPATH = $(PATHSRC) $(PATHTEST)
+VPATH = $(PATHSRC) $(PATHTEST) $(PATHUNITY)
 
 SRCFNAME = 	$(notdir $(SRCFNAMERELPATH))
 SRC = $(patsubst %,$(PATHSRC)%,$(SRCFNAMERELPATH))
@@ -90,13 +92,127 @@ OBJ = $(patsubst %,$(PATHOBJ)%,$(OBJFNAME))
 OBJTESTFNAME = $(SRCTESTFNAME:.c=.o)
 OBJTEST = $(patsubst %,$(PATHOBJ)%,$(OBJTESTFNAME))
 
+$(info $$var is 1 [${SRCTESTFNAME}])
+
+$(info $$var is 1 [${VPATH}])
+
 RESULTS = $(patsubst %.c,$(PATHRES)%.txt,$(SRCTESTFNAME) )
-RESULTS = $(patsubst $(PATHTEST)%.c,$(PATHRES)%.txt,$(SRCTESTFNAME) )
+TESTEXE = $(patsubst %.c,$(PATHTESTEXE)%.$(TARGET_EXTENSION),$(SRCTESTFNAME) )
+# RESULTS = $(patsubst $(PATHTEST)%.c,$(PATHRES)%.txt,$(SRCTESTFNAME) )
+# RESULTS = $(patsubst %.c,%.txt,$(SRCTESTFNAME) )
+
+$(info $$Path build [${TESTEXE}])
 
 
-$(info $$var is 1 [${RESULTS}])
+# CFLAGS= -Wall -Wextra -Werror -I. -I$(PATHUNITY) -I$(PATHSRC) -DTEST
+CFLAGS= -Wall -Wextra -Werror -I.
+COMPILE=cc -c
+LINK=cc
 
-.PHONY: all clean fclean re bonus
+
+PASSED = `grep -s PASS $(PATHRES)*.txt`
+FAIL = `grep -s FAIL $(PATHRES)*.txt`
+IGNORE = `grep -s IGNORE $(PATHRES)*.txt`
+
+test: $(RESULTS) 
+# test: build/results/test_ft_split_str.txt 
+	@echo "-----------------------\nIGNORES:\n-----------------------"
+	@echo "$(IGNORE)"
+	@echo "-----------------------\nFAILURES:\n-----------------------"
+	@echo "$(FAIL)"
+	@echo "-----------------------\nPASSED:\n-----------------------"
+	@echo "$(PASSED)"
+	@echo "\nDONE"
+
+$(info $$Path build [${PATHBUILD}])
+$(info $$Path res [${PATHRES}])
+$(info $$Path obj [${PATHOBJ}])
+$(info $$Path src [${PATHSRC}])
+$(info $$Path src test [${PATHTEST}])
+$(info $$Path unity [${PATHUNITY}])
+$(info $$Results is [${RESULTS}])
+
+
+
+#+++++++ writing explicitely
+
+
+$(PATHRES)%.txt: $(PATHTESTEXE)%.$(TARGET_EXTENSION)
+	-./$< > $@ 2>&1
+
+
+# build/results/test_ft_split_str.txt: build/exe/test_ft_split_str.out 
+# 	-./$< > $@ 2>&1
+
+# build/exe/test_ft_split_str.out: build/obj/test_ft_split_str.o build/obj/ft_split_str.o build/obj/unity.o
+# 	$(LINK) -o $@ $^
+
+
+# # build/obj/test_ft_split_str.o
+# # build/obj/ft_split_str.o
+# # build/obj/unity.o
+# # test/test_ft_split_str.c test/split/test_ft_split_str.c
+# # ft_split_str.c
+# # unity.c
+
+
+
+# build/obj/test_ft_split_str.o:: test_ft_split_str.c
+# 	$(COMPILE) $(CFLAGS) $< -o $@
+
+# build/obj/ft_split_str.o:: ft_split_str.c
+# 	$(COMPILE) $(CFLAGS) $< -o $@
+
+# build/obj/unity.o:: unity/src/unity.c unity/src/unity.h 
+# 	$(COMPILE) $(CFLAGS) $< -o $@
+
+# PATHTESTEXE
+
+$(PATHTESTEXE)test_%.$(TARGET_EXTENSION): $(PATHOBJ)test_%.o $(PATHOBJ)%.o $(PATHOBJ)unity.o
+	$(LINK) -o $@ $^
+
+
+$(PATHOBJ)%.o:: %.c
+	$(COMPILE) $(CFLAGS) $< -o $@
+
+
+#+++++++
+
+# see makefile manual vpath
+
+# # build/results/test_ft_split_str.txt
+# # build/test_ft_split_str.out
+# $(PATHRES)%.txt: $(PATHBUILD)%.$(TARGET_EXTENSION)
+# 	-./$< > $@ 2>&1
+
+# # build/test_ft_split_str.out
+# # build/obj/test_ft_split_str.o
+# # build/obj/ft_split_str.o
+# # build/obj/unity.o
+
+# $(PATHBUILD)test_%.$(TARGET_EXTENSION): $(PATHOBJ)test_%.o $(PATHOBJ)%.o $(PATHOBJ)unity.o
+# 	$(LINK) -o $@ $^
+
+# # build/obj/test_ft_split_str.o
+# # build/obj/ft_split_str.o
+# # build/obj/unity.o
+# # test/test_ft_split_str.c test/split/test_ft_split_str.c
+# # ft_split_str.c
+# # unity.c
+
+# $(PATHOBJ)%.o:: $(PATHTEST)%.c
+# 	$(COMPILE) $(CFLAGS) $< -o $@
+
+# $(PATHOBJ)%.o:: $(PATHSRC)%.c
+# 	$(COMPILE) $(CFLAGS) $< -o $@
+
+# $(PATHOBJ)%.o:: $(PATHUNITY)%.c $(PATHUNITY)%.h
+# 	$(COMPILE) $(CFLAGS) $< -o $@
+
+
+# normal make
+
+.PHONY: all clean fclean re bonus test
 
 all: $(NAME)
 
@@ -108,41 +224,17 @@ $(PATHOBJ)%.o: %.c
 
 clean:
 	$(RM) $(OBJ)
+	$(RM) $(OBJTEST)
+	$(RM) $(RESULTS)
+	$(RM) $(TESTEXE)
+	$(RM) $(PATHOBJ)unity.o
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-PASSED = `grep -s PASS $(PATHR)*.txt`
-FAIL = `grep -s FAIL $(PATHR)*.txt`
-IGNORE = `grep -s IGNORE $(PATHR)*.txt`
-
-test: $(RESULTS)
-	@echo "-----------------------\nIGNORES:\n-----------------------"
-	@echo "$(IGNORE)"
-	@echo "-----------------------\nFAILURES:\n-----------------------"
-	@echo "$(FAIL)"
-	@echo "-----------------------\nPASSED:\n-----------------------"
-	@echo "$(PASSED)"
-	@echo "\nDONE"
-
-$(PATHR)%.txt: $(PATHB)%.$(TARGET_EXTENSION)
-	-./$< > $@ 2>&1
-
-$(PATHB)test_%.$(TARGET_EXTENSION): $(PATHO)test_%.o $(PATHO)%.o $(PATHO)unity.o
-	$(LINK) -o $@ $^
-
-$(PATHO)%.o:: %.c
-	$(COMPILE) $(CFLAGS) $< -o $@
-
-$(PATHO)%.o:: %.c
-	$(COMPILE) $(CFLAGS) $< -o $@
-
-$(PATHO)%.o:: $(PATHU)%.c $(PATHU)%.h
-	$(COMPILE) $(CFLAGS) $< -o $@
-
-
-
-	
+.PRECIOUS: $(PATHTESTEXE)test_%.$(TARGET_EXTENSION)
+.PRECIOUS: $(PATHOBJ)%.o
+.PRECIOUS: $(PATHRES)%.txt	
 	
