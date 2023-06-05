@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/01 19:11:58 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/05 21:26:24 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,119 +14,157 @@
 # $@ -> filename of the target of the rule
 # $< ->  name of the first prerequisite
 
-# make library
-# compile each test together with library
+# -I Flag adds path where header files are searched during preprocessing
 SHELL:=/bin/bash
-CFLAGS = -Wall -Wextra -Werror -I.
+CFLAGS = -Wall -Wextra -Werror -I. -I$(BASEPATHSRC) -I$(BASEPATHTEST)
 NAME = libft.a
 TARGET_EXTENSION=out
 LINK= cc
 CC = cc
 
-PATHSRC = src/ src/split/
+SUBFOLDERSRC = . ascii/ convert/ io/ lst/ mem/ split/ str/ 
+BASEPATHSRC = ./src/
+PATHSRC = $(patsubst %,$(BASEPATHSRC)%,$(SUBFOLDERSRC))
 PATHBUILD = build/
 PATHOBJ = build/obj/
 PATHTESTEXE = build/exe/
 PATHRES = build/results/
 PATHUNITY = unity/src/
-PATHTEST = srctest/ srctest/split/
+BASEPATHTEST = ./srctest/
+SUBFOLDERTEST = . split/
+PATHTEST = $(patsubst %,$(BASEPATHTEST)%,$(SUBFOLDERTEST))
 
-SRCFNAMERELPATH = 	ft_atoi.c \
-					ft_isdigit.c \
-					ft_memmove.c \
-					split/ft_split.c \
-					split/ft_split_str.c \
-					split/ft_split_free_error.c \
-					ft_strlcat.c \
-					ft_strrchr.c \
-					ft_bzero.c \
-					ft_isprint.c \
-					ft_memset.c \
-					ft_strlcpy.c \
-					ft_strtrim.c \
-					ft_strnstr.c \
-					ft_calloc.c \
-					ft_itoa.c \
-					ft_putchar_fd.c \
-					ft_strchr.c \
-					ft_strlen.c \
-					ft_substr.c \
-					ft_isalnum.c \
-					ft_memchr.c \
-					ft_putendl_fd.c \
-					ft_strdup.c \
-					ft_strmapi.c \
-					ft_tolower.c \
-					ft_isalpha.c \
-					ft_memcmp.c \
-					ft_putnbr_fd.c \
-					ft_striteri.c \
-					ft_strncmp.c \
-					ft_toupper.c \
-					ft_isascii.c \
-					ft_memcpy.c \
-					ft_putstr_fd.c \
-					ft_strjoin.c \
-					ft_lstadd_back.c \
-					ft_lstclear.c \
-					ft_lstiter.c \
-					ft_lstmap.c \
-					ft_lstsize.c \
-					ft_lstadd_front.c \
-					ft_lstdelone.c \
-					ft_lstlast.c \
-					ft_lstnew.c \
-
+# VPATH contains additional folders, where Makefile will look for source files (*.c)
 VPATH = $(PATHSRC) $(PATHTEST) $(PATHUNITY)
 
-SRCFNAME = 	$(notdir $(SRCFNAMERELPATH))
-SRC = $(patsubst %,$(PATHSRC)%,$(SRCFNAMERELPATH))
+SRC =	ft_atoi.c \
+		ft_isdigit.c \
+		ft_memmove.c \
+		ft_split.c \
+		ft_split_str.c \
+		ft_split_free_error.c \
+		ft_strlcat.c \
+		ft_strrchr.c \
+		ft_bzero.c \
+		ft_isprint.c \
+		ft_memset.c \
+		ft_strlcpy.c \
+		ft_strtrim.c \
+		ft_strnstr.c \
+		ft_calloc.c \
+		ft_itoa.c \
+		ft_putchar_fd.c \
+		ft_strchr.c \
+		ft_strlen.c \
+		ft_substr.c \
+		ft_isalnum.c \
+		ft_memchr.c \
+		ft_putendl_fd.c \
+		ft_strdup.c \
+		ft_strmapi.c \
+		ft_tolower.c \
+		ft_isalpha.c \
+		ft_memcmp.c \
+		ft_putnbr_fd.c \
+		ft_striteri.c \
+		ft_strncmp.c \
+		ft_toupper.c \
+		ft_isascii.c \
+		ft_memcpy.c \
+		ft_putstr_fd.c \
+		ft_strjoin.c \
+		ft_lstadd_back.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
+		ft_lstsize.c \
+		ft_lstadd_front.c \
+		ft_lstdelone.c \
+		ft_lstlast.c \
+		ft_lstnew.c \
 
-SRCTESTFNAMERELPATH = 	split/test_ft_split_str.c 
+SRCTEST = 	test_ft_split_str.c 
 
-SRCTESTFNAME = 	$(notdir $(SRCTESTFNAMERELPATH))
-SRCTEST = $(patsubst %,$(PATHSRC)%,$(SRCTESTFNAMERELPATH))
+SRCTESTUNIT = 	split/unit_ft_split_str.c 
+SRCTESTUNITPATH = $(patsubst %,$(BASEPATHTEST)%,$(SRCTESTUNIT))
 
-OBJFNAME = $(SRCFNAME:.c=.o)
+# for each *.c src file there is a *.o file
+# the path is appended to each filename
+OBJFNAME = $(SRC:.c=.o)
 OBJ = $(patsubst %,$(PATHOBJ)%,$(OBJFNAME))
 
-OBJTESTFNAME = $(SRCTESTFNAME:.c=.o)
+OBJTESTFNAME = $(SRCTEST:.c=.o)
 OBJTEST = $(patsubst %,$(PATHOBJ)%,$(OBJTESTFNAME))
 
-RESULTS = $(patsubst %.c,$(PATHRES)%.txt,$(SRCTESTFNAME) )
-TESTEXE = $(patsubst %.c,$(PATHTESTEXE)%.$(TARGET_EXTENSION),$(SRCTESTFNAME) )
+# there is one results file created for each src test file 
+# (unity output is redirected to results file later)
+# also one executable for each src test file
+RESULTS = $(patsubst %.c,$(PATHRES)%.txt,$(SRCTEST) )
+TESTEXE = $(patsubst %.c,$(PATHTESTEXE)%.$(TARGET_EXTENSION),$(SRCTEST) )
 
-PASSED = `grep -s PASS $(PATHRES)*.txt`
+# grab results from results files, -s suppress messages
+# also count number with -c
+PASS = `grep -s PASS $(PATHRES)*.txt`
+PASSNUM = `grep -s -c PASS $(PATHRES)*.txt`
 FAIL = `grep -s FAIL $(PATHRES)*.txt`
+FAILNUM = `grep -s -c FAIL $(PATHRES)*.txt`
 IGNORE = `grep -s IGNORE $(PATHRES)*.txt`
+IGNORENUM = `grep -s -c IGNORE $(PATHRES)*.txt`
 
-.PHONY: all clean fclean re bonus test print
-
-test: $(RESULTS) 
-	@echo "-----------------------\nIGNORES:\n-----------------------"
-	@echo "$(IGNORE)"
-	@echo "-----------------------\nFAILURES:\n-----------------------"
-	@echo "$(FAIL)"
-	@echo "-----------------------\nPASSED:\n-----------------------"
-	@echo "$(PASSED)"
-	@echo "\nDONE"
-
-$(PATHRES)%.txt: $(PATHTESTEXE)%.$(TARGET_EXTENSION)
-	-./$< > $@ 2>&1
-
-$(PATHTESTEXE)test_%.$(TARGET_EXTENSION): $(PATHOBJ)test_%.o $(PATHOBJ)%.o $(PATHOBJ)unity.o
-	$(LINK) -o $@ $^
+.PHONY: all clean fclean re bonus test testunit print
 
 all: $(NAME)
 
+# c archive is always createdif it doesnt exist
+# s add index to archive or update if exists
+# r insert files member into archive, replace previously added members with same name
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $^
 
+# create object files from source files
+# any path in VPATH is searched for source files
 $(PATHOBJ)%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+# grab results from results files
+test: testclean all $(RESULTS)
+	$(call color_print_heading,$(YELLOW),IGNORES,$(IGNORENUM))
+	@echo "$(IGNORE)"
+	$(call color_print_heading,$(RED),FAILURES,$(FAILNUM))
+	@echo "$(FAIL)"
+	$(call color_print_heading,$(GREEN),PASSED,$(PASSNUM))
+	@echo "$(PASS)"
+	@printf "\nDONE\n"
+
+# results files depends executable
+# executable is run, otuput rediected to results files
+# stdout and stderr are redirected to same stream
+$(PATHRES)%.txt: $(PATHTESTEXE)%.$(TARGET_EXTENSION)
+	-./$< > $@ 2>&1
+
+#test executable is created by linking test-obj, unity and libft	
+$(PATHTESTEXE)test_%.$(TARGET_EXTENSION): \
+							$(PATHOBJ)test_%.o \
+							$(PATHOBJ)unity.o
+	$(LINK) -o $@ $^ -L. $(NAME)
+
+# unit tests
+# testfiles include all other necessary files as headers
+# CFLAGS variable is adjusted, to look for headers in all src path
+# that way, other files can be included without specifying relative path
+# test is run for each specified unit test file
+testunit: $(PATHOBJ)unity.o
+	$(eval CFLAGS := $(CFLAGS) $(patsubst %,-I$(BASEPATHSRC)%,$(SUBFOLDERSRC)))
+	@for unit_file in $(SRCTESTUNITPATH); do \
+		$(CC) $(CFLAGS) $$unit_file $(PATHOBJ)unity.o -o test.out;\
+		./test.out; \
+		rm test.out; \
+	done
+
+clean: testclean
 	$(RM) $(OBJ)
+
+testclean:
 	$(RM) $(OBJTEST)
 	$(RM) $(RESULTS)
 	$(RM) $(TESTEXE)
@@ -137,35 +175,7 @@ fclean: clean
 
 re: fclean all
 
-.PRECIOUS: $(PATHTESTEXE)test_%.$(TARGET_EXTENSION)
-.PRECIOUS: $(PATHOBJ)%.o
-.PRECIOUS: $(PATHRES)%.txt	
-
-INDENTATION = 15
-INDENTATION2 = 30
-HEADINGFORMATBEG = *****************************************
-HEADINGFORMATEND = $(HEADINGFORMATBEG)
-
-define print_file_names
-	@for a in $(1) ; do \
-		c=$$(( $${c:--1}+1 )); \
-    	if [[ $$(($$c % 4)) == 0 ]]; then \
-    	 	printf "\n"; \
-		fi; \
-			printf "%-$(INDENTATION2)s" $$a; \
-    done
-    @printf "\n";
-endef 
-
-define print_path_var 
-	@printf "%-$(INDENTATION)s %-$(INDENTATION)s" $(1) $(2)
-	@printf "\n"
-endef
-
-define print_heading
-	@printf "\n$(HEADINGFORMATBEG)$(1)$(HEADINGFORMATEND)\n"
-endef
-
+# variables are printed using formatting functions specified at the end
 print:
 	@clear
 	$(call print_heading, PATH)
@@ -187,3 +197,51 @@ print:
 	$(call print_file_names, $(OBJTESTFNAME))
 	$(call print_heading, RESULTS)
 	$(call print_file_names, $(RESULTS))
+
+# tells makefile not to delete the following files after running
+.PRECIOUS: $(PATHTESTEXE)test_%.$(TARGET_EXTENSION)
+.PRECIOUS: $(PATHOBJ)%.o
+.PRECIOUS: $(PATHOBJ)%.d
+.PRECIOUS: $(PATHRES)%.txt	
+
+INDENTATION = 15
+INDENTATION2 = 30
+HEADINGFORMATBEG = *****************************************
+HEADINGFORMATEND = $(HEADINGFORMATBEG)
+
+BLACK=0
+RED=1
+GREEN=2
+YELLOW=3
+BLUE=4
+MAGENTA=5
+CYAN=6
+WHITE=7
+
+define print_file_names
+	@for a in $(1) ; do \
+		c=$$(( $${c:--1}+1 )); \
+    	if [[ $$(($$c % 4)) == 0 ]]; then \
+    	 	printf "\n"; \
+		fi; \
+			printf "%-$(INDENTATION2)s" $$a; \
+    done
+    @printf "\n";
+endef 
+
+define print_path_var 
+	@printf "%-$(INDENTATION)s %-$(INDENTATION)s" $(1) $(2)
+	@printf "\n"
+endef
+
+define print_heading
+	@printf "\n$(HEADINGFORMATBEG)$(1)$(HEADINGFORMATEND)\n"
+endef
+
+define color_print_heading
+    @tput setaf $1
+	@printf "\n"
+	@printf "%-20s%-s%-s%-20s" "************" $2 "($3)" "************"
+	@printf "\n\n"
+    @tput sgr0
+endef

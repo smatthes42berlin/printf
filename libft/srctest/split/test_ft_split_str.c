@@ -6,11 +6,12 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:02:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/30 18:05:12 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/05 21:59:16 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../src/libft.h"
+#include "../../src/split/ft_split_str.c"
 #include "../test_libft.h"
 
 void	setUp(void){};
@@ -42,6 +43,7 @@ void	empty_string(void)
 	empty_string_helper("", "aa");
 	empty_string_helper("aaa", "aaa");
 	empty_string_helper("aaaaaa", "aaa");
+	empty_string_helper("aaaaaaaaaaaaaaa", "aaa");
 }
 
 void	valid_input_helper(char const *s, char const *split_at, char **actual,
@@ -70,6 +72,10 @@ void	valid_input(void)
 	actual[2] = "baa";
 	actual[3] = "b";
 	valid_input_helper("aabbbaabbbaabbb", "bb", actual, 4);
+	actual[0] = "aa";
+	actual[1] = "baa";
+	actual[2] = "baa";
+	valid_input_helper("aabbbaabbbaabbbbbbbbbb", "bb", actual, 4);
 }
 
 int	main(void)
