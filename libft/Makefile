@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/05 21:26:24 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/06 21:21:04 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ SRC =	ft_atoi.c \
 		ft_lstlast.c \
 		ft_lstnew.c \
 
-SRCTEST = 	test_ft_split_str.c 
+SRCTEST = 	test_ft_split_str.c
 
 SRCTESTUNIT = 	split/unit_ft_split_str.c 
 SRCTESTUNITPATH = $(patsubst %,$(BASEPATHTEST)%,$(SRCTESTUNIT))

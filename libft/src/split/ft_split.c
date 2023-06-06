@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/29 16:52:49 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/06 20:32:07 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,26 +68,6 @@ static int	get_substr_len(char const *s, char c)
 		len++;
 	return (len);
 }
-
-// static int	malloc_error_free(char **res, size_t i_num_substr,
-// size_t substr_len)
-// {
-// 	size_t	i;
-
-// 	res[i_num_substr] = malloc(sizeof(**res) * (substr_len + 1));
-// 	if (!res[i_num_substr])
-// 	{
-// 		i = 0;
-// 		while (i < i_num_substr)
-// 		{
-// 			free(res[i]);
-// 			i++;
-// 		}
-// 		free(res);
-// 		return (0);
-// 	}
-// 	return (1);
-// }
 
 static size_t	calc_num_substr(char const *s, char c)
 {

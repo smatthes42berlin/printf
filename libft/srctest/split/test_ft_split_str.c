@@ -6,12 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:02:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/05 21:59:16 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/06 20:39:40 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../src/libft.h"
-#include "../../src/split/ft_split_str.c"
 #include "../test_libft.h"
 
 void	setUp(void){};
@@ -28,12 +27,12 @@ void	invalid_input(void)
 
 void	empty_string_helper(char const *s, char const *split_at)
 {
-	char	*actual[1];
+	char	*expected[1];
 	char	**test;
 
-	actual[0] = "";
+	expected[0] = NULL;
 	test = ft_split_str(s, split_at);
-	TEST_ASSERT_EQUAL_STRING_ARRAY(test, actual, 1);
+	TEST_ASSERT_EQUAL_STRING_ARRAY(expected, test, 1);
 	free(test);
 }
 
@@ -46,14 +45,14 @@ void	empty_string(void)
 	empty_string_helper("aaaaaaaaaaaaaaa", "aaa");
 }
 
-void	valid_input_helper(char const *s, char const *split_at, char **actual,
+void	valid_input_helper(char const *s, char const *split_at, char **expected,
 		int num_elem)
 {
-	char	**test;
+	char	**actual;
 
-	test = ft_split_str(s, split_at);
-	TEST_ASSERT_EQUAL_STRING_ARRAY(test, actual, num_elem);
-	free(test);
+	actual = ft_split_str(s, split_at);
+	TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, num_elem);
+	free(actual);
 }
 
 void	valid_input(void)
@@ -75,6 +74,7 @@ void	valid_input(void)
 	actual[0] = "aa";
 	actual[1] = "baa";
 	actual[2] = "baa";
+	actual[3] = NULL;
 	valid_input_helper("aabbbaabbbaabbbbbbbbbb", "bb", actual, 4);
 }
 
