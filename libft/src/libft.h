@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/29 16:54:17 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/08 15:57:07 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int					malloc_error_free(char **res, size_t i_num_substr,
 char				**ft_split(char const *s, char c);
 char				**ft_split_str(char const *s, char const *split_at);
 
-
 /* mem stuff */
 
 void				*ft_memset(void *s, int c, size_t n);
@@ -95,5 +94,9 @@ void				ft_putnbr_fd(int n, int fd);
 
 int					ft_atoi(const char *nptr);
 char				*ft_itoa(int n);
+
+/* arr */
+
+size_t				ft_arr_len_char(char **arr);
 
 #endif

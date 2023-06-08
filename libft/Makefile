@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/06 21:21:04 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/08 15:58:40 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ TARGET_EXTENSION=out
 LINK= cc
 CC = cc
 
-SUBFOLDERSRC = . ascii/ convert/ io/ lst/ mem/ split/ str/ 
+SUBFOLDERSRC = . ascii/ convert/ io/ lst/ mem/ split/ str/ arr/ 
 BASEPATHSRC = ./src/
 PATHSRC = $(patsubst %,$(BASEPATHSRC)%,$(SUBFOLDERSRC))
 PATHBUILD = build/
@@ -31,7 +31,7 @@ PATHTESTEXE = build/exe/
 PATHRES = build/results/
 PATHUNITY = unity/src/
 BASEPATHTEST = ./srctest/
-SUBFOLDERTEST = . split/
+SUBFOLDERTEST = . split/ arr/
 PATHTEST = $(patsubst %,$(BASEPATHTEST)%,$(SUBFOLDERTEST))
 
 # VPATH contains additional folders, where Makefile will look for source files (*.c)
@@ -82,8 +82,10 @@ SRC =	ft_atoi.c \
 		ft_lstdelone.c \
 		ft_lstlast.c \
 		ft_lstnew.c \
+		ft_arr_len_char.c
 
-SRCTEST = 	test_ft_split_str.c
+SRCTEST = 	test_ft_split_str.c \
+			test_ft_arr_len_char.c
 
 SRCTESTUNIT = 	split/unit_ft_split_str.c 
 SRCTESTUNITPATH = $(patsubst %,$(BASEPATHTEST)%,$(SRCTESTUNIT))

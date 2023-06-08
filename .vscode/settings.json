@@ -2,5 +2,10 @@
     "files.associations": {
         "dumbexample.h": "c"
     },
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#06323A",
+        "titleBar.activeBackground": "#084751",
+        "titleBar.activeForeground": "#F3FCFE"
+    }
 }
