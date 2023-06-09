@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "dumbexample.h": "c"
+        "dumbexample.h": "c",
+        "test_libftprintf.h": "c",
+        "ft_printf.h": "c"
     },
     "cmake.configureOnOpen": false,
     "workbench.colorCustomizations": {

@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_libftprintf.h                                 :+:      :+:    :+:   */
+/*   test_printf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 09:00:22 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/08 17:20:43 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/09 13:09:26 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_LIBFTPRINTF_H
-# define TEST_LIBFTPRINTF_H
+#ifndef TEST_PRINTF_H
+# define TEST_PRINTF_H
 
+# include <../unity/src/unity.h>
 # include <fcntl.h>
 # include <libft.h>
 # include <stdarg.h>
@@ -24,7 +25,7 @@
 
 /* test controller */
 
-void		run_test(int fd, const char *format, ...);
+void		run_test(int fd, char *message, const char *format, ...);
 int			ft_vdprintf(int fd, const char *format, va_list args);
 int			run_printf_test_to_file(void);
 
@@ -60,9 +61,10 @@ typedef struct s_tres_pf
 	char	*print_should;
 	char	*return_is;
 	char	*return_should;
+	char	*message;
 }			t_res_pf;
 
 t_res_pf	*read_test_results(void);
-int			process_results(t_res_pf *res, char *file_content);
+t_res_pf	*process_results(char *file_content);
 
 #endif

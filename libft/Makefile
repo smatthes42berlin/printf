@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/08 15:58:40 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/09 16:12:27 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,9 @@ SRC =	ft_atoi.c \
 		ft_lstdelone.c \
 		ft_lstlast.c \
 		ft_lstnew.c \
-		ft_arr_len_char.c
+		ft_arr_len_char.c \
+		ft_putstr_fd_len.c \
+		ft_putchar_fd_len.c
 
 SRCTEST = 	test_ft_split_str.c \
 			test_ft_arr_len_char.c

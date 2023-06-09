@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd_len.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 09:03:09 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/27 10:32:41 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 16:00:09 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_test(void)
+size_t	ft_putstr_fd_len(char *s, int fd)
 {
-	// printf("Hi there!");
-	return (5);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+	return (i);
 }

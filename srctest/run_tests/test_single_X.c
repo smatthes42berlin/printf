@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_single_gen.c                                  :+:      :+:    :+:   */
+/*   test_single_X.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:49:54 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/07 15:09:06 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/28 16:50:48 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 13:18:41 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void test_single_gen(int fd){
-        fd++;
+#include "../test_printf.h"
 
-    return;
+void	test_single_X(int fd)
+{
+	char *message = "single capital hexadecimal testing";
+
+	run_test(fd, message, "%X", UINTPTR_MAX);
+	run_test(fd, message, "%X", INTPTR_MAX);
+	run_test(fd, message, "%X", INTPTR_MIN);
+	run_test(fd, message, "%X", 0);
+	return ;
 }

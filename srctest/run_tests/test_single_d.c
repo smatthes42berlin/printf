@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_single_p.c                                    :+:      :+:    :+:   */
+/*   test_single_d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:50:14 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/07 15:09:21 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/28 16:49:45 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 13:14:58 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void test_single_p(int fd){
-        fd++;
+#include "../test_printf.h"
 
-    return;
+void	test_single_d(int fd)
+{
+	char *message = "single char testing";
+	run_test(fd, message, "%d", INT_MIN + 0.1);
+	run_test(fd, message, "%d", INT_MAX - 0.1);
+	run_test(fd, message, "%d", 1.3333333333);
+	run_test(fd, message, "%d", -1.333333333);
+	return ;
 }

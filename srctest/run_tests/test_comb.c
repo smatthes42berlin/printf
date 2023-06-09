@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_single_c.c                                    :+:      :+:    :+:   */
+/*   test_comb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:48:30 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/08 17:19:08 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/28 16:53:20 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 13:13:37 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../test_libftprintf.h"
+#include "../test_printf.h"
 
-
-void	test_single_c(int fd)
+void	test_comb(int fd)
 {
-	int i = 32;
-	while (i <= 126)
-	{
-		run_test(fd, "%c", i);
-		i++;
-	}
+	char *message = "combination testing";
+	run_test(fd, message, "%s%i%u", "abc", INT_MIN, 10.32);
+	run_test(fd, message, "%s%s%x", "abc", "abc", INT_MIN);
 	return ;
 }

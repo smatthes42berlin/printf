@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_test.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 09:03:09 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/08 15:28:28 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/26 10:54:45 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 15:41:04 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test_libftprintf.h"
-#include <stdio.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(void)
-{
-	t_res_pf *check_results;
+# include <stdarg.h>
+# include <unistd.h>
 
-	run_printf_test_to_file();
-	check_results = read_test_results();
-	printf("\n\n\nHi there \n\n\n");
-	// printf("%c", file_content[7]);
-	check_results++;
-	return (1);
-}
+int	ft_vdprintf(int fd, const char *format, va_list args);
+int	ft_printf(const char *format, ...);
+
+#endif

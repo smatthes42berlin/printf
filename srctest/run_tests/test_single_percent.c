@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_single_u.c                                    :+:      :+:    :+:   */
+/*   test_single_percent.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:50:32 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/07 15:10:29 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/28 16:50:48 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 13:16:14 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	test_single_u(int fd)
+#include "../test_printf.h"
+
+void	test_single_percent(int fd)
 {
-	fd++;
+	char *message = "single percent sign testing";
+
+	run_test(fd, message, "%%");
 	return ;
 }

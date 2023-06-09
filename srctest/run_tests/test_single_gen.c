@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_all.c                                         :+:      :+:    :+:   */
+/*   test_single_gen.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:43:29 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/07 15:08:04 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/28 16:49:54 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 07:30:38 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./test_libftprintf.h"
+#include "../test_printf.h"
 
-void	run_all_tests(int fd)
+void	test_single_gen(int fd)
 {
-	test_single_c(fd);
-	test_single_d(fd);
-	test_single_i(fd);
-	test_single_p(fd);
-	test_single_s(fd);
-	test_single_u(fd);
-	test_single_x(fd);
-	test_single_X(fd);
-	test_single_gen(fd);
-	test_comb(fd);
-	// run_test(fd, "Teststring %d, %s", 200, "aaa");
+	fd++;
 	return ;
 }

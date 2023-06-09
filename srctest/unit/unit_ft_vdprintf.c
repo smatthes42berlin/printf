@@ -1,17 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_single_d.c                                    :+:      :+:    :+:   */
+/*   unit_ft_vdprintf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:49:45 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/07 15:08:47 by smatthes         ###   ########.fr       */
+/*   Created: 2023/06/09 16:40:51 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/09 17:05:20 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void test_single_d(int fd){
-        fd++;
+#include "./printf.h"
+#include "./test_printf.h"
 
-    return;
+void	setUp(void){};
+void	tearDown(void){};
+
+void	test(void)
+{
+	TEST_ASSERT_EQUAL_STRING("", "");
+}
+
+int	main(void)
+{
+	UNITY_BEGIN();
+	RUN_TEST(test);
+	UNITY_END();
+	return (0);
 }

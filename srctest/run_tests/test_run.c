@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_controller.c                                  :+:      :+:    :+:   */
+/*   test_run.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 10:48:27 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/07 16:49:46 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/09 16:23:41 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../test_libftprintf.h"
+#include "../../printf.h"
+#include "../test_printf.h"
 
-int	ft_vdprintf(int fd, const char *format, va_list args)
-{
-	format++;
-	args++;
-	write(fd, "my_res", 6);
-	return (6);
-}
-
-void	run_test(int fd, const char *format, ...)
+void	run_test(int fd, char *message, const char *format, ...)
 {
 	va_list	args;
 	int		res_should;
@@ -34,6 +27,8 @@ void	run_test(int fd, const char *format, ...)
 	dprintf(fd, "%d", res_is);
 	dprintf(fd, "-*-*-");
 	dprintf(fd, "%d", res_should);
+	dprintf(fd, "-*-*-");
+	dprintf(fd, "%s", message);
 	dprintf(fd, "-*-*-\n");
 	va_end(args);
 }
@@ -44,7 +39,6 @@ int	run_printf_test_to_file(void)
 	int		close;
 	char	*file_path;
 
-	// file_path = "../../build/results/test_results.txt";
 	file_path = "../results/test_results.txt";
 	fd = open_file_fd(file_path, O_WRONLY | O_CREAT | O_TRUNC);
 	close = close_file_fd(fd);

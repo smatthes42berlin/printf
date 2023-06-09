@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 11:17:28 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/07 15:12:27 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/09 07:32:18 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../test_libftprintf.h"
+#include "../test_printf.h"
 
 FILE	*open_file(char *file_path, char *mode)
 {
