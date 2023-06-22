@@ -6,12 +6,14 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 10:48:27 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/09 16:23:41 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/22 11:26:20 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../printf.h"
 #include "../test_printf.h"
+
+int	ft_vdprintf(int fd, const char *format, va_list args);
 
 void	run_test(int fd, char *message, const char *format, ...)
 {
@@ -23,6 +25,7 @@ void	run_test(int fd, char *message, const char *format, ...)
 	res_should = vdprintf(fd, format, args);
 	dprintf(fd, "-*-*-");
 	res_is = ft_vdprintf(fd, format, args);
+	// res_is = 0;
 	dprintf(fd, "-*-*-");
 	dprintf(fd, "%d", res_is);
 	dprintf(fd, "-*-*-");

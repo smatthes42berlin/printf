@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_all.c                                         :+:      :+:    :+:   */
+/*   ft_arr_set_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:43:29 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 11:27:25 by smatthes         ###   ########.fr       */
+/*   Created: 2023/06/08 15:31:05 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/22 17:09:09 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./test_printf.h"
+#include <libft.h>
 
-void	run_all_tests(int fd)
+size_t	ft_arr_set_int(int *arr, size_t size, int num)
 {
-	test_single_c(fd);
-	// test_single_d(fd);
-	// test_single_i(fd);
-	// test_single_p(fd);
-	// test_single_s(fd);
-	// test_single_u(fd);
-	// test_single_x(fd);
-	// test_single_X(fd);
-	// test_single_gen(fd);
-	// test_comb(fd);
-	// run_test(fd, "Teststring %d, %s", 200, "aaa");
-	return ;
+	size_t i;
+
+	i = 0;
+	while (i < size)
+	{
+		arr[i] = num;
+		i++;
+	}
+	return (i);
 }

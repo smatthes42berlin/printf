@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/09 16:54:02 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/22 10:50:33 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,8 @@ SRCTESTUNITPATH = $(patsubst %,$(BASEPATHTEST)%,$(SRCTESTUNIT))
 OBJFNAME = $(SRC:.c=.o)
 OBJ = $(patsubst %,$(PATHOBJ)%,$(OBJFNAME))
 
+$(info $$var is [${OBJ}])
+
 OBJTESTFNAME = $(SRCTEST:.c=.o)
 OBJTEST = $(patsubst %,$(PATHOBJ)%,$(OBJTESTFNAME))
 
@@ -90,8 +92,10 @@ IGNORENUM = `grep -s -c IGNORE $(PATHRES)*.txt`
 
 all: $(NAME)
 
-$(NAME): libft $(OBJ)
-	ar rcs $(NAME) $^
+$(NAME): libft addPrintf
+
+addPrintf:: $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 # create object files from source files
 # any path in VPATH is searched for source files
@@ -124,7 +128,7 @@ $(TESTEXE):: $(OBJTEST) $(PATHOBJ)unity.o
 testunit: libft $(PATHOBJ)unity.o
 	$(eval CFLAGS := $(CFLAGS) $(patsubst %,-I$(BASEPATHSRC)%,$(SUBFOLDERSRC)))
 	@for unit_file in $(SRCTESTUNITPATH); do \
-		$(CC) $(CFLAGS) $$unit_file $(PATHOBJ)unity.o -L. $(NAME) -o test.out;\
+		$(CC) $(CFLAGS) $(ADDHEADERLOC) $$unit_file $(PATHOBJ)unity.o -L. $(NAME) -o test.out;\
 		./test.out; \
 		rm test.out; \
 	done

@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_all.c                                         :+:      :+:    :+:   */
+/*   ft_str_cont_duplic.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:43:29 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 11:27:25 by smatthes         ###   ########.fr       */
+/*   Created: 2023/06/22 15:53:05 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/22 17:40:06 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./test_printf.h"
+#include "libft.h"
+#include "stdio.h"
 
-void	run_all_tests(int fd)
+int	ft_str_cont_duplic(const char *str)
 {
-	test_single_c(fd);
-	// test_single_d(fd);
-	// test_single_i(fd);
-	// test_single_p(fd);
-	// test_single_s(fd);
-	// test_single_u(fd);
-	// test_single_x(fd);
-	// test_single_X(fd);
-	// test_single_gen(fd);
-	// test_comb(fd);
-	// run_test(fd, "Teststring %d, %s", 200, "aaa");
-	return ;
+	int				count[256];
+	int				i;
+	int				num_cur_char;
+	unsigned char	cur_char;
+
+	ft_arr_set_int(count, 256, 0);
+	i = 0;
+	while (str[i])
+	{
+		cur_char = (unsigned char)str[i];
+		num_cur_char = count[cur_char] + 1;
+		count[cur_char] = num_cur_char;
+		if (num_cur_char > 1)
+			return (1);
+		i++;
+	}
+	return (0);
 }

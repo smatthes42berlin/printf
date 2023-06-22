@@ -6,17 +6,17 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:02 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/11 13:05:49 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:56:42 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	c_cast;
 	size_t	s_len;
-	char	*str_start;
+	const  char	*str_start;
 
 	s_len = ft_strlen(s);
 	c_cast = (unsigned char)c;
@@ -25,6 +25,6 @@ char	*ft_strrchr(char *s, int c)
 	while (s != str_start && c_cast != *s)
 		s--;
 	if (*s == c_cast)
-		return (s);
+		return ((char *)s);
 	return (NULL);
 }
