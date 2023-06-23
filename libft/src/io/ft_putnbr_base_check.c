@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
+/*   ft_putnbr_base_check.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:24:53 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 18:05:28 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:49:00 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-ssize_t	ft_putnbr_base_fd(int fd, int nbr, const char *base)
+size_t	ft_putnbr_base_check(const char *base, t_base_info *base_info)
 {
-	size_t	base_len;
-	long	nbr_l;
-
-	nbr_l = (long)nbr;
-	base_len = ft_strlen(base);
-	if (base_len <= 1)
-		return (-1);
-	if (ft_str_cont_chars(base, "+-"))
-		return (-1);
-	if (ft_str_cont_duplic(base))
-		return (-1);
-	if (nbr_l < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nbr_l = nbr_l * -1;		
-	}
-	fd++;
-	nbr++;
-	base++;
+	base_info->base_len = ft_strlen(base);
+	base_info->base = (char *)base;
+	if (base_info->base_len <= 1)
+		return (0);
+	if (ft_str_cont_chars(base_info->base, "+-"))
+		return (0);
+	if (ft_str_cont_duplic(base_info->base))
+		return (0);
 	return (1);
-	// ft_putchar_fd_len(fd);
-	// ft_putstr_fd_len("str", fd);
 }

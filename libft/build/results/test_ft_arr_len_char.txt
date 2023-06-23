@@ -1,0 +1,9 @@
+src is (null)
+
+src is 0
+
+./srctest/arr/test_ft_arr_len_char.c:42:arr_len:PASS
+
+-----------------------
+1 Tests 0 Failures 0 Ignored 
+OK

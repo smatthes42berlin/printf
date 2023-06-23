@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:03:09 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/09 13:11:13 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:27:16 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(void)
 	i = 0;
 	while (!last_test_reached(check_results[i]))
 	{
+		printf("\n%ld\n", i);
 		RUN_TEST(test_case);
 		i++;
 	}

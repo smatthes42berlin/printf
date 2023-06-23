@@ -1,0 +1,28 @@
+
+
+
+
+
+fd is 3
+size of file 318
+
+
+
+read return: 318
+
+
+0
+./srctest/./test_controller.c:41:test_case:FAIL: Expected '0xffffffffffffffff' Was '0x-1'. single pointer testing 1
+
+1
+./srctest/./test_controller.c:32:test_case:PASS
+
+2
+./srctest/./test_controller.c:32:test_case:PASS
+
+3
+./srctest/./test_controller.c:41:test_case:FAIL: Expected '0x8000000000000000' Was '0x-8000000000000000'. single pointer testing 4
+
+-----------------------
+4 Tests 2 Failures 0 Ignored 
+FAIL

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_putnbr_base_fd.c                           :+:      :+:    :+:   */
+/*   test_ft_putnbr_base_fd_ul.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:02:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 15:48:22 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:41:02 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 void	setUp(void){};
 void	tearDown(void){};
 
-void	run_using_pipe(int nbr, char *base, char *exp_res)
+void	run_using_pipe(unsigned long nbr, char *base, char *exp_res)
 {
 	int		p[2];
 	char	buff[1000];
 	size_t	num_chars;
 
 	pipe(p);
-	num_chars = ft_putnbr_base_fd(p[1], nbr, base);
+	num_chars = ft_putnbr_base_fd_ul(p[1], nbr, base);
 	buff[num_chars] = '\0';
 	close(p[1]);
 	read(p[0], buff, num_chars);
@@ -37,8 +37,7 @@ void	decimal(void)
 	char	*base;
 
 	base = "0123456789";
-	run_using_pipe(INT_MAX, base, "2147483647");
-	run_using_pipe(INT_MIN, base, "-2147483648");
+	run_using_pipe(ULONG_MAX, base, "18446744073709551615");
 	run_using_pipe(0, base, "0");
 }
 void	binary(void)
@@ -46,17 +45,16 @@ void	binary(void)
 	char	*base;
 
 	base = "01";
-	run_using_pipe(INT_MAX, base, "1111111111111111111111111111111");
-	run_using_pipe(INT_MIN, base, "-10000000000000000000000000000000");
+	run_using_pipe(ULONG_MAX, base,
+			"1111111111111111111111111111111111111111111111111111111111111111");
 	run_using_pipe(0, base, "0");
 }
 void	hexadecimal(void)
 {
 	char	*base;
 
-	base = "0123456789abcdef";
-	run_using_pipe(INT_MAX, base, "7FFFFFFF");
-	run_using_pipe(INT_MIN, base, "-80000000");
+	base = "0123456789ABCDEF";
+	run_using_pipe(ULONG_MAX, base, "FFFFFFFFFFFFFFFF");
 	run_using_pipe(0, base, "0");
 }
 void	invalid_input(void)
@@ -64,24 +62,19 @@ void	invalid_input(void)
 	char	*base;
 
 	base = "0";
-	run_using_pipe(INT_MAX, base, "");
-	run_using_pipe(INT_MIN, base, "");
+	run_using_pipe(ULONG_MAX, base, "");
 	run_using_pipe(0, base, "");
 	base = "";
-	run_using_pipe(INT_MAX, base, "");
-	run_using_pipe(INT_MIN, base, "");
+	run_using_pipe(ULONG_MAX, base, "");
 	run_using_pipe(0, base, "");
 	base = "1236456";
-	run_using_pipe(INT_MAX, base, "");
-	run_using_pipe(INT_MIN, base, "");
+	run_using_pipe(ULONG_MAX, base, "");
 	run_using_pipe(0, base, "");
 	base = "+1236456";
-	run_using_pipe(INT_MAX, base, "");
-	run_using_pipe(INT_MIN, base, "");
+	run_using_pipe(ULONG_MAX, base, "");
 	run_using_pipe(0, base, "");
 	base = "-1236456";
-	run_using_pipe(INT_MAX, base, "");
-	run_using_pipe(INT_MIN, base, "");
+	run_using_pipe(ULONG_MAX, base, "");
 	run_using_pipe(0, base, "");
 }
 

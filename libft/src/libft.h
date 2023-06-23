@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 17:59:40 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:49:41 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <limits.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -22,6 +23,12 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_base_info
+{
+	char			*base;
+	size_t			base_len;
+}					t_base_info;
 
 /* ascci char checks n manip */
 
@@ -94,7 +101,11 @@ size_t	ft_putstr_fd_len(char *s,
 						int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-ssize_t				ft_putnbr_base_fd(int fd, int nbr, const char *base);
+size_t				ft_putnbr_base_fd_l(int fd, long nbr, const char *base);
+size_t				ft_putnbr_base_fd_ul(int fd, unsigned long nbr,
+						const char *base);
+size_t	ft_putnbr_base_check(const char *base,
+							t_base_info *base_info);
 
 /* atoi itoa */
 

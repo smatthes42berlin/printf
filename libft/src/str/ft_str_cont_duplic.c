@@ -6,12 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 15:53:05 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 17:40:06 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:40:55 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 int	ft_str_cont_duplic(const char *str)
 {

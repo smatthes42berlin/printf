@@ -6,21 +6,20 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 07:15:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 13:05:42 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 14:33:41 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/src/libft.h"
 #include "../printf.h"
-#include <stdio.h>
 
 static void	handle_specifiers(int fd, const char *cur_format,
-				int *spec_chars_written, va_list args);
+				ssize_t *spec_chars_written, va_list args);
 
 int	ft_vdprintf(int fd, const char *format, va_list args)
 {
-	size_t	i;
-	int		spec_chars_written;
+	int		i;
+	ssize_t	spec_chars_written;
 	int		tot_write_count;
 
 	i = 0;
@@ -37,8 +36,8 @@ int	ft_vdprintf(int fd, const char *format, va_list args)
 			i++;
 		else
 		{
-			ft_putchar_fd(format[i], fd);
-			tot_write_count += 1;
+			tot_write_count += ft_putchar_fd_len(format[i], fd);
+			// tot_write_count += 1;
 			i++;
 		}
 	}
@@ -46,19 +45,18 @@ int	ft_vdprintf(int fd, const char *format, va_list args)
 }
 
 static void	handle_specifiers(int fd, const char *cur_format,
-		int *spec_chars_written, va_list args)
+		ssize_t *spec_chars_written, va_list args)
 {
+	// is printable check reuired?
 	if (cur_format[0] != '%')
 		*spec_chars_written = 0;
 	else if (cur_format[1] == 'c')
-		*spec_chars_written = ft_putchar_fd_len(va_arg(args,
-														unsigned int),
-												fd);
+		*spec_chars_written = handle_c(fd, args);
 	else if (cur_format[1] == 's')
 		*spec_chars_written = ft_putstr_fd_len(va_arg(args, char *),
 												fd);
 	else if (cur_format[1] == 'p')
-		*spec_chars_written = 0;
+		*spec_chars_written = handle_p(fd, args);
 	else if (cur_format[1] == 'd')
 		*spec_chars_written = 0;
 	else if (cur_format[1] == 'i')

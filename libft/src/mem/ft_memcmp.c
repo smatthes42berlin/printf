@@ -6,12 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 09:52:02 by smatthes          #+#    #+#             */
-/*   Updated: 2023/05/14 16:50:33 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 09:41:17 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

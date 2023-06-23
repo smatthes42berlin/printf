@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/22 17:43:09 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/23 16:41:30 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,13 +85,16 @@ SRC =	ft_atoi.c \
 		ft_arr_len_char.c \
 		ft_putstr_fd_len.c \
 		ft_putchar_fd_len.c \
-		ft_putnbr_base_fd.c \
+		ft_putnbr_base_fd_ul.c \
+		ft_putnbr_base_fd_l.c \
+		ft_putnbr_base_check.c \
 		ft_str_cont_duplic.c \
 		ft_arr_set_int.c \
 		ft_str_cont_chars.c
 
 SRCTEST = 	test_ft_split_str.c \
-			test_ft_putnbr_base_fd.c \
+			test_ft_putnbr_base_fd_l.c \
+			test_ft_putnbr_base_fd_ul.c \
 			test_ft_arr_len_char.c \
 			test_ft_str_cont_duplic.c \
 			test_ft_str_cont_chars.c
