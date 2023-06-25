@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:24:53 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 16:35:09 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:15:43 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // #include "./ft_putnbr_base_check.c"
 #include "libft.h"
 
-static void	put_character(int fd, unsigned long nbr, t_base_info base_info,
+static void	put_character_ul(int fd, unsigned long nbr, t_base_info base_info,
 				size_t *chars_printed);
 
 size_t	ft_putnbr_base_fd_ul(int fd, unsigned long nbr, const char *base)
@@ -30,11 +30,11 @@ size_t	ft_putnbr_base_fd_ul(int fd, unsigned long nbr, const char *base)
 	chars_printed = 0;
 	if (!ft_putnbr_base_check(base, &base_info))
 		return (0);
-	put_character(fd, nbr, base_info, &chars_printed);
+	put_character_ul(fd, nbr, base_info, &chars_printed);
 	return (chars_printed);
 }
 
-void	put_character(int fd, unsigned long nbr, t_base_info base_info,
+void	put_character_ul(int fd, unsigned long nbr, t_base_info base_info,
 		size_t *chars_printed)
 {
 	long	base_index;
@@ -48,7 +48,7 @@ void	put_character(int fd, unsigned long nbr, t_base_info base_info,
 	{
 		base_index = nbr % (unsigned long)base_info.base_len;
 		num_div = nbr / base_info.base_len;
-		put_character(fd, num_div, base_info, chars_printed);
+		put_character_ul(fd, num_div, base_info, chars_printed);
 		*chars_printed += ft_putchar_fd_len(base_info.base[base_index], fd);
 	}
 }

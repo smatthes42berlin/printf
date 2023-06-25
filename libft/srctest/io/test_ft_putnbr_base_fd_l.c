@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:02:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 16:14:45 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:03:49 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,10 @@ void	invalid_input(void)
 int	main(void)
 {
 	UNITY_BEGIN();
-	TEST_ASSERT_EQUAL_INT(1,1);
-	// RUN_TEST(decimal);
-	// RUN_TEST(binary);
-	// RUN_TEST(hexadecimal);
-	// RUN_TEST(invalid_input);
+	RUN_TEST(decimal);
+	RUN_TEST(binary);
+	RUN_TEST(hexadecimal);
+	RUN_TEST(invalid_input);
 	UNITY_END();
 	return (0);
 }

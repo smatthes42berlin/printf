@@ -6,12 +6,12 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 16:40:51 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 11:48:26 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:00:52 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./printf.h"
-#include "./test_printf.h"
+#include "./ft_printf.h"
+#include "./test_ft_printf.h"
 #include "ft_vdprintf.c"
 #include "ft_printf.c"
 

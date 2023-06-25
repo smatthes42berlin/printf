@@ -6,12 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 07:15:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 14:33:41 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:58:13 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/src/libft.h"
-#include "../printf.h"
+#include "./ft_printf.h"
 
 static void	handle_specifiers(int fd, const char *cur_format,
 				ssize_t *spec_chars_written, va_list args);
@@ -53,8 +52,7 @@ static void	handle_specifiers(int fd, const char *cur_format,
 	else if (cur_format[1] == 'c')
 		*spec_chars_written = handle_c(fd, args);
 	else if (cur_format[1] == 's')
-		*spec_chars_written = ft_putstr_fd_len(va_arg(args, char *),
-												fd);
+		*spec_chars_written = handle_s(fd, args);
 	else if (cur_format[1] == 'p')
 		*spec_chars_written = handle_p(fd, args);
 	else if (cur_format[1] == 'd')

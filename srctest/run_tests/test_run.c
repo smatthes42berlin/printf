@@ -6,12 +6,12 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 10:48:27 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 14:44:37 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/25 19:33:00 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../printf.h"
-#include "../test_printf.h"
+#include "ft_printf.h"
+#include "../test_ft_printf.h"
 
 int	ft_vdprintf(int fd, const char *format, va_list args);
 
@@ -24,9 +24,13 @@ void	run_test(int fd, char *message, const char *format, ...)
 
 	va_start(args, format);
 	va_copy(args_cpy, args);
+	dprintf(fd, "$$$");
 	res_should = vdprintf(fd, format, args);
+	dprintf(fd, "$$$");
 	dprintf(fd, "-*-*-");
+	dprintf(fd, "$$$");
 	res_is = ft_vdprintf(fd, format, args_cpy);
+	dprintf(fd, "$$$");
 	dprintf(fd, "-*-*-");
 	dprintf(fd, "%d", res_is);
 	dprintf(fd, "-*-*-");

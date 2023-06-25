@@ -6,12 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 09:39:42 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 14:34:51 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:58:26 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/src/libft.h"
-#include "../printf.h"
+#include "./ft_printf.h"
 
 size_t	handle_c(int fd, va_list args)
 {

@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/23 14:35:45 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/25 16:28:15 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ VPATH = $(PATHSRC) $(PATHTEST) $(PATHUNITY)
 SRC = 	ft_printf.c \
 		ft_vdprintf.c \
 		handle_p.c \
-		handle_c.c
+		handle_c.c \
+		handle_s.c
 
 SRCTEST = 	test_controller.c \
 			test_read.c \

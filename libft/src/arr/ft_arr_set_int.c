@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 15:31:05 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/22 17:09:09 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:33:55 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "./libft.h"
 
 size_t	ft_arr_set_int(int *arr, size_t size, int num)
 {

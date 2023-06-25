@@ -1,18 +1,13 @@
-
-
-
-
-
 fd is 3
-size of file 318
+size of file 366
 
 
 
-read return: 318
+read return: 366
 
 
 0
-./srctest/./test_controller.c:41:test_case:FAIL: Expected '0xffffffffffffffff' Was '0x-1'. single pointer testing 1
+./srctest/./test_controller.c:32:test_case:PASS
 
 1
 ./srctest/./test_controller.c:32:test_case:PASS
@@ -21,8 +16,14 @@ read return: 318
 ./srctest/./test_controller.c:32:test_case:PASS
 
 3
-./srctest/./test_controller.c:41:test_case:FAIL: Expected '0x8000000000000000' Was '0x-8000000000000000'. single pointer testing 4
+./srctest/./test_controller.c:32:test_case:PASS
+
+4
+./srctest/./test_controller.c:32:test_case:PASS
+
+5
+./srctest/./test_controller.c:32:test_case:PASS
 
 -----------------------
-4 Tests 2 Failures 0 Ignored 
-FAIL
+6 Tests 0 Failures 0 Ignored 
+OK

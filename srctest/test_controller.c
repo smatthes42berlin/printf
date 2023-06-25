@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:03:09 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 14:27:16 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:00:52 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./test_printf.h"
+#include "./test_ft_printf.h"
 
 static t_res_pf	*check_results;
 static size_t	i;

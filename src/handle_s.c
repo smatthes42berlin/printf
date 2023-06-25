@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_comb.c                                        :+:      :+:    :+:   */
+/*   handle_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 16:53:20 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/25 17:00:52 by smatthes         ###   ########.fr       */
+/*   Created: 2023/06/23 09:39:42 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/25 18:58:28 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../test_ft_printf.h"
+#include "./ft_printf.h"
 
-void	test_comb(int fd)
+// here i know, that it is the correct format sepcifier
+
+size_t	handle_s(int fd, va_list args)
 {
-	char *message = "combination testing";
-	run_test(fd, message, "%s%i%u", "abc", INT_MIN, 10.32);
-	run_test(fd, message, "%s%s%x", "abc", "abc", INT_MIN);
-	return ;
+	return ft_putstr_fd_len(va_arg(args, char *),
+							fd);
 }
