@@ -1,9 +1,9 @@
 fd is 3
-size of file 366
+size of file 2888
 
 
 
-read return: 366
+read return: 2888
 
 
 0
@@ -24,6 +24,102 @@ read return: 366
 5
 ./srctest/./test_controller.c:32:test_case:PASS
 
+6
+./srctest/./test_controller.c:32:test_case:PASS
+
+7
+./srctest/./test_controller.c:32:test_case:PASS
+
+8
+./srctest/./test_controller.c:32:test_case:PASS
+
+9
+./srctest/./test_controller.c:32:test_case:PASS
+
+10
+./srctest/./test_controller.c:32:test_case:PASS
+
+11
+./srctest/./test_controller.c:32:test_case:PASS
+
+12
+./srctest/./test_controller.c:32:test_case:PASS
+
+13
+./srctest/./test_controller.c:32:test_case:PASS
+
+14
+./srctest/./test_controller.c:32:test_case:PASS
+
+15
+./srctest/./test_controller.c:32:test_case:PASS
+
+16
+./srctest/./test_controller.c:32:test_case:PASS
+
+17
+./srctest/./test_controller.c:32:test_case:PASS
+
+18
+./srctest/./test_controller.c:32:test_case:PASS
+
+19
+./srctest/./test_controller.c:32:test_case:PASS
+
+20
+./srctest/./test_controller.c:32:test_case:PASS
+
+21
+./srctest/./test_controller.c:32:test_case:PASS
+
+22
+./srctest/./test_controller.c:32:test_case:PASS
+
+23
+./srctest/./test_controller.c:32:test_case:PASS
+
+24
+./srctest/./test_controller.c:32:test_case:PASS
+
+25
+./srctest/./test_controller.c:32:test_case:PASS
+
+26
+./srctest/./test_controller.c:32:test_case:PASS
+
+27
+./srctest/./test_controller.c:32:test_case:PASS
+
+28
+./srctest/./test_controller.c:32:test_case:PASS
+
+29
+./srctest/./test_controller.c:32:test_case:PASS
+
+30
+./srctest/./test_controller.c:32:test_case:PASS
+
+31
+./srctest/./test_controller.c:32:test_case:PASS
+
+32
+./srctest/./test_controller.c:32:test_case:PASS
+
+33
+./srctest/./test_controller.c:32:test_case:PASS
+
+34
+./srctest/./test_controller.c:32:test_case:PASS
+
+35
+./srctest/./test_controller.c:32:test_case:PASS
+
+36
+./srctest/./test_controller.c:32:test_case:PASS
+
+37
+./srctest/./test_controller.c:32:test_case:PASS
+
 -----------------------
-6 Tests 0 Failures 0 Ignored 
+38 Tests 0 Failures 0 Ignored 
 OK

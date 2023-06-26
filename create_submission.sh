@@ -29,3 +29,8 @@ cp ./Makefile_submit ./submission/Makefile
 # make -C submission/ all
 
 git clone https://github.com/Tripouille/printfTester.git ./submission/printfTester
+make -C submission/printfTester m
+
+git clone https://github.com/paulo-santana/ft_printf_tester.git ./submission/ft_printf_tester
+cd submission/ft_printf_tester
+sh test m

@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/23 16:41:30 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/26 08:08:29 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ SRC =	ft_atoi.c \
 		ft_lstnew.c \
 		ft_arr_len_char.c \
 		ft_putstr_fd_len.c \
+		ft_putstr_fd_len_only_print.c \
 		ft_putchar_fd_len.c \
 		ft_putnbr_base_fd_ul.c \
 		ft_putnbr_base_fd_l.c \

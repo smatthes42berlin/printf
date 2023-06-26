@@ -1,8 +1,0 @@
-./srctest/io/test_ft_putnbr_base_fd_l.c:93:decimal:PASS
-./srctest/io/test_ft_putnbr_base_fd_l.c:94:binary:PASS
-./srctest/io/test_ft_putnbr_base_fd_l.c:95:hexadecimal:PASS
-./srctest/io/test_ft_putnbr_base_fd_l.c:96:invalid_input:PASS
-
------------------------
-4 Tests 0 Failures 0 Ignored 
-OK

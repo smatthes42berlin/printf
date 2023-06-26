@@ -1,5 +1,0 @@
-./srctest/str/test_ft_str_cont_duplic.c:31:all:PASS
-
------------------------
-1 Tests 0 Failures 0 Ignored 
-OK

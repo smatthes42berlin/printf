@@ -1,7 +1,0 @@
-./srctest/split/test_ft_split_str.c:84:invalid_input:PASS
-./srctest/split/test_ft_split_str.c:85:empty_string:PASS
-./srctest/split/test_ft_split_str.c:86:valid_input:PASS
-
------------------------
-3 Tests 0 Failures 0 Ignored 
-OK

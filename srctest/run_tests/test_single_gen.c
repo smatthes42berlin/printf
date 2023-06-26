@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 16:49:54 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/25 17:00:52 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/26 10:58:54 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	test_single_gen(int fd)
 {
-	fd++;
+	run_test(fd, "NULL", NULL);
 	return ;
 }

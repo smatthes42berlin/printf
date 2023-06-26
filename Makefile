@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/25 16:28:15 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/26 11:45:18 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,11 @@ SRC = 	ft_printf.c \
 		ft_vdprintf.c \
 		handle_p.c \
 		handle_c.c \
-		handle_s.c
+		handle_s.c \
+		handle_d_i.c \
+		handle_u.c \
+		handle_x.c \
+		handle_cap_x.c
 
 SRCTEST = 	test_controller.c \
 			test_read.c \

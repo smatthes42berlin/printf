@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 20:11:04 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/25 18:32:51 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/26 11:31:03 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ static int	create_sub_str(char **res, char const *s, char const *split_at,
 	}
 	return (1);
 }
+
 static int	get_substr_len(char const *s, char const *split_at,
 		size_t split_at_length)
 {

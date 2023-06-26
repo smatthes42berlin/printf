@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   handle_cap_x.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 07:24:51 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 11:42:39 by smatthes         ###   ########.fr       */
+/*   Created: 2023/06/26 11:46:12 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/26 11:46:15 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+size_t	handle_cap_x(int fd, va_list args)
 {
-	va_list	args;
-	int		chars_printed;
+	char			*base;
+	unsigned long	nbr;
 
-	va_start(args, format);
-	chars_printed = ft_vdprintf(1, format, args);
-	va_end(args);
-	return (chars_printed);
+	nbr = (unsigned long)va_arg(args, unsigned int);
+	base = "0123456789ABCDEF";
+	return (ft_putnbr_base_fd_ul(fd, nbr, base));
 }
