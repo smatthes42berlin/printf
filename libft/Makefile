@@ -6,13 +6,15 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/26 08:08:29 by smatthes         ###   ########.fr        #
+#    Updated: 2023/06/26 15:35:07 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # $^ -> all prerequisites with spaces in between
 # $@ -> filename of the target of the rule
 # $< ->  name of the first prerequisite
+
+include Makefile_src
 
 # -I Flag adds path where header files are searched during preprocessing
 SHELL:=/bin/bash
@@ -31,73 +33,19 @@ PATHTESTEXE = build/exe/
 PATHRES = build/results/
 PATHUNITY = unity/src/
 BASEPATHTEST = ./srctest/
-SUBFOLDERTEST = . split/ arr/ io/ str/
+SUBFOLDERTEST = . split/ arr/ io/ str/ convert/
 PATHTEST = $(patsubst %,$(BASEPATHTEST)%,$(SUBFOLDERTEST))
 
 # VPATH contains additional folders, where Makefile will look for source files (*.c)
 VPATH = $(PATHSRC) $(PATHTEST) $(PATHUNITY)
-
-SRC =	ft_atoi.c \
-		ft_isdigit.c \
-		ft_memmove.c \
-		ft_split.c \
-		ft_split_str.c \
-		ft_split_free_error.c \
-		ft_strlcat.c \
-		ft_strrchr.c \
-		ft_bzero.c \
-		ft_isprint.c \
-		ft_memset.c \
-		ft_strlcpy.c \
-		ft_strtrim.c \
-		ft_strnstr.c \
-		ft_calloc.c \
-		ft_itoa.c \
-		ft_putchar_fd.c \
-		ft_strchr.c \
-		ft_strlen.c \
-		ft_substr.c \
-		ft_isalnum.c \
-		ft_memchr.c \
-		ft_putendl_fd.c \
-		ft_strdup.c \
-		ft_strmapi.c \
-		ft_tolower.c \
-		ft_isalpha.c \
-		ft_memcmp.c \
-		ft_putnbr_fd.c \
-		ft_striteri.c \
-		ft_strncmp.c \
-		ft_toupper.c \
-		ft_isascii.c \
-		ft_memcpy.c \
-		ft_putstr_fd.c \
-		ft_strjoin.c \
-		ft_lstadd_back.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c \
-		ft_lstsize.c \
-		ft_lstadd_front.c \
-		ft_lstdelone.c \
-		ft_lstlast.c \
-		ft_lstnew.c \
-		ft_arr_len_char.c \
-		ft_putstr_fd_len.c \
-		ft_putstr_fd_len_only_print.c \
-		ft_putchar_fd_len.c \
-		ft_putnbr_base_fd_ul.c \
-		ft_putnbr_base_fd_l.c \
-		ft_putnbr_base_check.c \
-		ft_str_cont_duplic.c \
-		ft_arr_set_int.c \
-		ft_str_cont_chars.c
-
+			
 SRCTEST = 	test_ft_split_str.c \
 			test_ft_putnbr_base_fd_l.c \
 			test_ft_putnbr_base_fd_ul.c \
 			test_ft_arr_len_char.c \
+			test_ft_str_chr_index.c \
 			test_ft_str_cont_duplic.c \
+			test_ft_atoi_base_l.c \
 			test_ft_str_cont_chars.c
 
 SRCTESTUNIT = 	split/unit_ft_split_str.c 

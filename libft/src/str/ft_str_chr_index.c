@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_str_chr_index.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 15:00:51 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/07 09:52:02 by smatthes          #+#    #+#             */
+/*   Updated: 2023/06/26 14:17:57 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+ssize_t	ft_str_chr_index(const char *s, int c)
 {
-	int	sign;
-	int	res;
-	int	i;
+	char	c_cast;
+	size_t	i;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	while (ft_isspace(nptr[i]))
+	c_cast = (unsigned char)c;
+	while (s[i] != c_cast && s[i])
 		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]) != 0)
-		res = res * 10 + nptr[i++] - '0';
-	return (res * sign);
+	if (s[i] == c_cast)
+		return (i);
+	return (-1);
 }

@@ -8,7 +8,8 @@ mkdir submission/libft
 
 find ./libft/src -name \*.c -exec cp {} submission/libft \;
 cp ./libft/Makefile_submit ./submission/libft/Makefile
-cp ./libft/src/libft.h ./submission/libft/libft.h
+cp ./libft/Makefile_src ./submission/libft/Makefile_src
+cp ./libft/libft.h ./submission/libft/libft.h
 
 find ./src -name \*.c -exec cp {} submission/ \;
 cp ./src/ft_printf.h ./submission/ft_printf.h

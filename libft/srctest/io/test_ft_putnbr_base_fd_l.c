@@ -6,11 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:02:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 17:03:49 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:02:13 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../src/libft.h"
+#include "./libft.h"
 #include "../test_libft.h"
 
 void	setUp(void){};

@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_str_cont_duplic.c                          :+:      :+:    :+:   */
+/*   test_ft_str_chr_index.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 09:02:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 14:02:13 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:49:15 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
-#include "../test_libft.h"
+#include "libft.h"
+#include "test_libft.h"
 
 void	setUp(void){};
 void	tearDown(void){};
 
+void	run_char_index(const char *src_str, int c, ssize_t exp_res)
+{
+	ssize_t	actual_res;
+
+	actual_res = ft_str_chr_index(src_str, c);
+	TEST_ASSERT_EQUAL_size_t(exp_res, actual_res);
+}
+
 void	all(void)
 {
-	TEST_ASSERT_EQUAL_INT(0, ft_str_cont_duplic("1234"));
-	TEST_ASSERT_EQUAL_INT(0, ft_str_cont_duplic("dsfg"));
-	TEST_ASSERT_EQUAL_INT(1, ft_str_cont_duplic("11"));
-	TEST_ASSERT_EQUAL_INT(1, ft_str_cont_duplic("gg"));
-	TEST_ASSERT_EQUAL_INT(0, ft_str_cont_duplic(""));
+	run_char_index("abcdefg", 'b', 1);
+	run_char_index("abcdefg", 'z', -1);
+	run_char_index("abcbdebfg", 'b', 1);
+	run_char_index("abcbdebfg", 'a', 0);
+	run_char_index("abc", '\0', 3);
 }
 
 int	main(void)
