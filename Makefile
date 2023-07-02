@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/06/26 11:45:18 by smatthes         ###   ########.fr        #
+#    Updated: 2023/07/02 14:20:18 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,6 +142,7 @@ testunit: libft $(PATHOBJ)unity.o
 
 
 clean: testclean
+	make -C libft clean
 	$(RM) $(OBJ)
 
 testclean:
@@ -152,6 +153,7 @@ testclean:
 	$(RM) $(PATHOBJ)unity.o
 
 fclean: clean
+	make -C libft fclean
 	$(RM) $(NAME)
 
 re: fclean all

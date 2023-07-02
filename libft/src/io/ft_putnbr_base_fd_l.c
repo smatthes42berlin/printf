@@ -6,19 +6,11 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:24:53 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 13:43:39 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:10:25 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// #include "../str/ft_strlen.c"
-// #include "../str/ft_str_cont_chars.c"
-// #include "../str/ft_str_cont_duplic.c"
-// #include "../str/ft_strchr.c"
-// #include "../arr/ft_arr_set_int.c"
-// #include "./ft_putchar_fd_len.c"
-// #include "./ft_putnbr_base_check.c"
 
 static void	put_character_l(int fd, long nbr, t_base_info base_info,
 				size_t *chars_printed);
@@ -74,12 +66,3 @@ void	put_character_l(int fd, long nbr, t_base_info base_info,
 		*chars_printed += ft_putchar_fd_len(base_info.base[base_index], fd);
 	}
 }
-
-// int main (void){
-// 	ft_putnbr_base_fd_l(1, LONG_MIN, "0123456789");
-// 	printf("\n\n");
-// 	ft_putnbr_base_fd_l(1, LONG_MIN, "01");
-// 	printf("\n\n");
-// 	ft_putnbr_base_fd_l(1, LONG_MIN, "0123456789ABCDEF");
-// 	printf("\n\n");
-// }

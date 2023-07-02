@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:23:36 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/26 14:20:54 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:17:09 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <limits.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -99,7 +98,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 void				ft_putchar_fd(char c, int fd);
 size_t				ft_putchar_fd_len(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
-size_t	ft_putstr_fd_len(char *s,
+size_t				ft_putstr_fd_len(char *s,
 						int fd);
 size_t				ft_putstr_fd_len_only_print(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
@@ -107,8 +106,8 @@ void				ft_putnbr_fd(int n, int fd);
 size_t				ft_putnbr_base_fd_l(int fd, long nbr, const char *base);
 size_t				ft_putnbr_base_fd_ul(int fd, unsigned long nbr,
 						const char *base);
-size_t	ft_putnbr_base_check(const char *base,
-							t_base_info *base_info);
+size_t				ft_putnbr_base_check(const char *base,
+						t_base_info *base_info);
 
 /* atoi itoa */
 

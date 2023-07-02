@@ -6,17 +6,10 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 13:24:53 by smatthes          #+#    #+#             */
-/*   Updated: 2023/06/23 17:15:43 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:10:38 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../arr/ft_arr_set_int.c"
-// #include "../str/ft_str_cont_chars.c"
-// #include "../str/ft_str_cont_duplic.c"
-// #include "../str/ft_strchr.c"
-// #include "../str/ft_strlen.c"
-// #include "./ft_putchar_fd_len.c"
-// #include "./ft_putnbr_base_check.c"
 #include "libft.h"
 
 static void	put_character_ul(int fd, unsigned long nbr, t_base_info base_info,
@@ -52,17 +45,3 @@ void	put_character_ul(int fd, unsigned long nbr, t_base_info base_info,
 		*chars_printed += ft_putchar_fd_len(base_info.base[base_index], fd);
 	}
 }
-
-// int	main(void)
-// {
-// 	size_t res;
-// 	res = ft_putnbr_base_fd_ul(1, ULONG_MAX, "0123456789");
-// 	printf("\n%ld\n", res);
-// 	printf("\n\n");
-// 	res = ft_putnbr_base_fd_ul(1, ULONG_MAX, "01");
-// 	printf("\n%ld\n", res);
-// 	printf("\n\n");
-// 	res = ft_putnbr_base_fd_ul(1, ULONG_MAX, "0123456789ABCDEF");
-// 	printf("\n%ld\n", res);
-// 	printf("\n\n");
-// }
