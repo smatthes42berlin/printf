@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/07/02 14:20:18 by smatthes         ###   ########.fr        #
+#    Updated: 2023/07/02 14:25:12 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@
 
 # -I Flag adds path where header files are searched during preprocessing
 SHELL:=/bin/bash
-CFLAGS = -Wall -Wextra -Werror -I. -I$(BASEPATHSRC) -I$(BASEPATHTEST) -I.$(PATHUNITY)
+CFLAGS = -Wall -Wextra -Werror -I. -I$(PATHLIBFT) -I$(BASEPATHSRC) -I$(BASEPATHTEST) -I.$(PATHUNITY)
 ADDHEADERLOC = $(patsubst %,-I%,$(HEADERPATH))
 NAME = libftprintf.a
 NAMELIBFT = libft.a
@@ -35,7 +35,7 @@ PATHOBJ = build/obj/
 PATHTESTEXE = build/exe/
 PATHRES = build/results/
 PATHUNITY = ./libft/unity/src/
-PATHLIBFT = libft/
+PATHLIBFT = ./libft/
 BASEPATHTEST = ./srctest/
 SUBFOLDERTEST = . run_tests/ read_results/ utils/ evaluate_results/
 
